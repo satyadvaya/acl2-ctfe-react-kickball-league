@@ -12,4 +12,10 @@
 
 .App-link {
   color: #61dafb;
+  text-decoration: underline;
+}
+
+.App-link.active {
+  color: #da61fb;
+  text-decoration: none;
 }

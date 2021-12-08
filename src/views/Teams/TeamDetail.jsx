@@ -1,5 +1,18 @@
+import { Link, useParams } from "react-router-dom";
+
 function TeamDetail() {
-  return <p>Team Detail</p>;
+  const { teamId } = useParams();
+
+  return (
+    <>
+      <p>
+        <Link to="/teams" className="App-link">
+          Back to Teams
+        </Link>
+      </p>
+      <p>Team Detail: {teamId}</p>
+    </>
+  );
 }
 
 export default TeamDetail;
