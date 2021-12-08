@@ -1,25 +1,27 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getTeams } from "../../services/teams";
 
 function TeamList() {
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    getTeams().then((resp) => setTeams(resp));
+  }, []);
+
   return (
     <>
       <h1>Teams:</h1>
       <ul>
-        <li>
-          <Link to="/teams/1" className="App-link">
-            Team 1
-          </Link>
-        </li>
-        <li>
-          <Link to="/teams/2" className="App-link">
-            Team 2
-          </Link>
-        </li>
-        <li>
-          <Link to="/teams/3" className="App-link">
-            Team 3
-          </Link>
-        </li>
+        {teams.map((team) => {
+          return (
+            <li key={team.id}>
+              <Link to={`/teams/${team.id}`} className="App-link">
+                {team.name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
