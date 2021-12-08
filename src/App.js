@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Home from "./views/Home/Home";
+import PlayerDetail from "./views/Players/PlayerDetail";
+import PlayerList from "./views/Players/PlayerList";
 import TeamDetail from "./views/Teams/TeamDetail";
 import TeamList from "./views/Teams/TeamList";
 
@@ -22,11 +24,17 @@ function App() {
           <NavLink to="/teams" className="App-link" exact>
             Teams
           </NavLink>
+          {"  "}
+          <NavLink to="/players" className="App-link" exact>
+            Players
+          </NavLink>
         </header>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/teams" component={TeamList} />
           <Route exact path="/teams/:teamId" component={TeamDetail} />
+          <Route exact path="/players" component={PlayerList} />
+          <Route exact path="/players/:playerId" component={PlayerDetail} />
         </Switch>
         <footer>Footer</footer>
       </Router>
