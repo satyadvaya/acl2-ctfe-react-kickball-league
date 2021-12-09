@@ -27,6 +27,4 @@ function PlayerList() {
   );
 }
 
-// blah
-
 export default PlayerList;
