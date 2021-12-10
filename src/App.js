@@ -8,6 +8,7 @@ import "./App.css";
 import Home from "./views/Home/Home";
 import PlayerDetail from "./views/Players/PlayerDetail";
 import PlayerList from "./views/Players/PlayerList";
+import AddTeam from "./views/Teams/AddTeam";
 import TeamDetail from "./views/Teams/TeamDetail";
 import TeamList from "./views/Teams/TeamList";
 
@@ -30,6 +31,7 @@ function App() {
           </NavLink>
         </header>
         <Switch>
+          <Route path="/teams/new" component={AddTeam} />
           <Route exact path="/" component={Home} />
           <Route exact path="/teams" component={TeamList} />
           <Route exact path="/teams/:teamId" component={TeamDetail} />

@@ -12,6 +12,9 @@ function TeamList() {
   return (
     <>
       <h1>Teams:</h1>
+      <Link to="/teams/new" className="App-link">
+        Add a team
+      </Link>
       <ul>
         {teams.map((team) => {
           return (
