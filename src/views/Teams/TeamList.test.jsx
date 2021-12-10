@@ -9,7 +9,7 @@ it("should render the team list", async () => {
     </MemoryRouter>
   );
 
-  const teamName = await screen.findByText("Stumptown Lumberjacks", {
+  const teamName = await screen.findByText("SoggyHat Tuques", {
     exact: false,
   });
   expect(teamName).toBeInTheDocument();

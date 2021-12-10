@@ -4,13 +4,13 @@ import TeamDetail from "./TeamDetail";
 
 it("should render a detailed view of an individual team", async () => {
   render(
-    <MemoryRouter initialEntries={["/teams/2"]}>
+    <MemoryRouter initialEntries={["/teams/4"]}>
       <Route path="/teams/:teamId" component={TeamDetail} />
     </MemoryRouter>
   );
 
   screen.getByText("Loading team...");
-  const teamName = await screen.findByText("Stumptown Lumberjacks", {
+  const teamName = await screen.findByText("SoggyHat Tuques", {
     exact: false,
   });
   expect(teamName).toBeInTheDocument();

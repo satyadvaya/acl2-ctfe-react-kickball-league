@@ -56,7 +56,9 @@ export default function AddTeam() {
           />
 
           {/* Below same as: <input type="text" value="Add a Team" /> */}
-          <button type="submit">Add a Team</button>
+          <button type="submit" aria-label="add a team">
+            Add
+          </button>
         </form>
       </fieldset>
     </>
