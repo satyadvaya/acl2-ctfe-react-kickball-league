@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { getTeams } from "../../services/teams";
 
 function TeamList() {
   const [teams, setTeams] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     getTeams().then((resp) => setTeams(resp));
   }, []);
+
+  const handleClick = (id) => {
+    history.push(`/teams/update/${id}`);
+  };
 
   return (
     <>
@@ -22,6 +28,8 @@ function TeamList() {
               <Link to={`/teams/${team.id}`} className="App-link">
                 {team.name}
               </Link>
+              {"  "}
+              <button onClick={() => handleClick(team.id)}>Update</button>
             </li>
           );
         })}
