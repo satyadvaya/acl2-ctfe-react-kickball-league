@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Home from "./views/Home/Home";
-import PlayerDetail from "./views/Players/PlayerDetail";
-import PlayerList from "./views/Players/PlayerList";
-import AddTeam from "./views/Teams/AddTeam";
-import TeamDetail from "./views/Teams/TeamDetail";
 import TeamList from "./views/Teams/TeamList";
+import TeamDetail from "./views/Teams/TeamDetail";
+import AddTeam from "./views/Teams/AddTeam";
 import UpdateTeam from "./views/Teams/UpdateTeam";
+import PlayerList from "./views/Players/PlayerList";
+import PlayerDetail from "./views/Players/PlayerDetail";
 
 function App() {
   return (

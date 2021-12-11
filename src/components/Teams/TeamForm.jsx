@@ -17,7 +17,7 @@ export default function TeamForm({
         name="name"
         type="text"
         value={name}
-        // Below same as: onChange={(event) => setName(target.value)}
+        // Below same as: onChange={(event) => setName(event.target.value)}
         onChange={({ target }) => setName(target.value)}
       />
 
@@ -40,8 +40,8 @@ export default function TeamForm({
       />
 
       {/* Below same as: <input type="text" value="Add a Team" /> */}
-      <button type="submit" aria-label="add a team">
-        Add
+      <button type="submit" aria-label="submit form">
+        Submit
       </button>
     </form>
   );

@@ -1,18 +1,18 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { Route, Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import AddTeam from "./AddTeam";
+import { render, screen } from "@testing-library/react";
 import TeamDetail from "./TeamDetail";
+import { Route, Router } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import UpdateTeam from "./UpdateTeam";
 
 const mockTeam = {
-  id: 4,
+  id: 99,
   created_at: "2021-12-10T15:55:13.832603+00:00",
-  name: "SoggyHat Tuques",
-  city: "WetHead",
-  state: "Oregon",
+  name: "Mocked Team",
+  city: "Mocked City",
+  state: "Mocked State",
   players: [],
 };
 
@@ -33,40 +33,37 @@ const server = setupServer(
 );
 
 beforeAll(() => {
-  // Establish requests interception layer before all tests
   server.listen();
 });
 
 afterAll(() => {
-  // Clean up after all tests are done, preventing this
-  // interception layer from affecting irrelevant tests
   server.close();
 });
 
-it("should add a team and redirect to the team detail page", async () => {
+it("should update a team and redirect to the team detail page", async () => {
   const history = createMemoryHistory();
-  history.push("/teams/new");
+  history.push("/teams/update/:id");
 
   render(
     <Router history={history}>
-      <Route path="/teams/new">
-        <AddTeam />
+      <Route path="/teams/update/:id">
+        <UpdateTeam />
       </Route>
-      <Route path="/teams/:id" component={TeamDetail} />
+      <Route path="/teams/update/:id" component={TeamDetail} />
     </Router>
   );
 
-  screen.getByText("Add a Team");
+  screen.getByText("Update Team");
 
   const nameField = screen.getByLabelText(/name/i);
   const cityField = screen.getByLabelText(/city/i);
   const stateField = screen.getByLabelText(/state/i);
   const submitButton = screen.getByRole("button", { name: "submit form" });
 
-  userEvent.type(nameField, "Mocked Team");
-  userEvent.type(cityField, "Mocked City");
-  userEvent.type(stateField, "Mocked State");
+  userEvent.type(nameField, "booger");
+  userEvent.type(cityField, "booger");
+  userEvent.type(stateField, "booger");
   userEvent.click(submitButton);
 
-  await screen.findByText("SoggyHat Tuques");
+  await screen.findByText("Mocked Team");
 });
