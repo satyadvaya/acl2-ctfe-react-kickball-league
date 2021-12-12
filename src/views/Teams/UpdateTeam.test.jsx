@@ -17,14 +17,13 @@ const mockTeam = {
 };
 
 const server = setupServer(
-  // Describe the requests to mock
   rest.get(
     "https://bvhupaxphhocdhgmoohf.supabase.co/rest/v1/teams",
     (req, res, ctx) => {
       return res(ctx.json(mockTeam));
     }
   ),
-  rest.post(
+  rest.patch(
     "https://bvhupaxphhocdhgmoohf.supabase.co/rest/v1/teams",
     (req, res, ctx) => {
       return res(ctx.json([mockTeam]));
@@ -42,14 +41,14 @@ afterAll(() => {
 
 it("should update a team and redirect to the team detail page", async () => {
   const history = createMemoryHistory();
-  history.push("/teams/update/:id");
+  history.push("/teams/update/:teamId");
 
   render(
     <Router history={history}>
-      <Route path="/teams/update/:id">
+      <Route path="/teams/update/:teamId">
         <UpdateTeam />
       </Route>
-      <Route path="/teams/update/:id" component={TeamDetail} />
+      <Route path="/teams/:teamId" component={TeamDetail} />
     </Router>
   );
 

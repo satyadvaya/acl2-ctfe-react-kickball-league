@@ -1,19 +1,39 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import { getTeams } from "../../services/teams";
+import { deleteTeamById, getTeams } from "../../services/teams";
 
 function TeamList() {
   const [teams, setTeams] = useState([]);
   const history = useHistory();
+  const [loading, setLoading] = useState(true);
+
+  const loadTeams = async () => {
+    const response = await getTeams();
+    setTeams(response);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    getTeams().then((resp) => setTeams(resp));
+    loadTeams();
   }, []);
 
-  const handleClick = (id) => {
+  const handleUpdate = (id) => {
     history.push(`/teams/update/${id}`);
   };
+
+  const handleDelete = async ({ id, name }) => {
+    const confirmDelete = confirm(
+      `Are you sure you want to delete the ${name} team?`
+    );
+
+    if (confirmDelete) {
+      await deleteTeamById(id);
+      await loadTeams();
+    }
+  };
+
+  if (loading) return <p>Loading teams...</p>;
 
   return (
     <>
@@ -29,7 +49,15 @@ function TeamList() {
                 {team.name}
               </Link>
               {"  "}
-              <button onClick={() => handleClick(team.id)}>Update</button>
+              <button type="button" onClick={() => handleUpdate(team.id)}>
+                Update
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDelete({ id: team.id, name: team.name })}
+              >
+                Delete
+              </button>
             </li>
           );
         })}

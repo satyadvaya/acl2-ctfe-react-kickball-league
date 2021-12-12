@@ -52,7 +52,7 @@ it("should add a team and redirect to the team detail page", async () => {
       <Route path="/teams/new">
         <AddTeam />
       </Route>
-      <Route path="/teams/:id" component={TeamDetail} />
+      <Route path="/teams/:teamId" component={TeamDetail} />
     </Router>
   );
 

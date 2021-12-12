@@ -13,7 +13,7 @@ export default function AddTeam() {
     event.preventDefault();
 
     // Below same as:
-    // const teamObject = { name: name, city: city, state: state };
+    // const teamObject = { name: name, city: citsy, state: state };
     // await createTeam(teamObject);
     const response = await createTeam({ name, city, state });
     history.push(`/teams/${response[0].id}`);

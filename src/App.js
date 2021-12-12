@@ -32,11 +32,11 @@ function App() {
           </NavLink>
         </header>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/teams" component={TeamList} />
-          <Route exact path="/teams/:teamId" component={TeamDetail} />
-          <Route exact path="/teams/new" component={AddTeam} />
           <Route exact path="/teams/update/:teamId" component={UpdateTeam} />
+          <Route exact path="/teams/new" component={AddTeam} />
+          <Route exact path="/teams/:teamId" component={TeamDetail} />
+          <Route exact path="/teams" component={TeamList} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/players" component={PlayerList} />
           <Route exact path="/players/:playerId" component={PlayerDetail} />
         </Switch>
