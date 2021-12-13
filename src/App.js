@@ -1,32 +1,27 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from "react-router-dom";
-import "./App.css";
-import Home from "./views/Home/Home";
-import TeamList from "./views/Teams/TeamList";
-import TeamDetail from "./views/Teams/TeamDetail";
-import AddTeam from "./views/Teams/AddTeam";
-import UpdateTeam from "./views/Teams/UpdateTeam";
-import PlayerList from "./views/Players/PlayerList";
-import PlayerDetail from "./views/Players/PlayerDetail";
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import './App.css';
+import Home from './views/Home/Home';
+import TeamList from './views/Teams/TeamList';
+import TeamDetail from './views/Teams/TeamDetail';
+import AddTeam from './views/Teams/AddTeam';
+import UpdateTeam from './views/Teams/UpdateTeam';
+import PlayerList from './views/Players/PlayerList';
+import PlayerDetail from './views/Players/PlayerDetail';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <header>
-          Kickball!{"  "}
+          Kickball!{'  '}
           <NavLink to="/" className="App-link" exact>
             Home
           </NavLink>
-          {"  "}
+          {'  '}
           <NavLink to="/teams" className="App-link" exact>
             Teams
           </NavLink>
-          {"  "}
+          {'  '}
           <NavLink to="/players" className="App-link" exact>
             Players
           </NavLink>

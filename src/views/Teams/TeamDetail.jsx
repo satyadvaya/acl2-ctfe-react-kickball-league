@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getTeamById } from "../../services/teams";
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { getTeamById } from '../../services/teams';
 
 function TeamDetail() {
   const { teamId } = useParams();
@@ -8,9 +8,17 @@ function TeamDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getTeamById(teamId)
-      .then((resp) => setTeam(resp))
-      .finally(() => setLoading(false));
+    // Below same as:
+    // getTeamById(teamId)
+    //   .then((resp) => setTeam(resp))
+    //   .finally(() => setLoading(false));
+    async function getTeam() {
+      const response = await getTeamById(teamId);
+      setTeam(response);
+      setLoading(false);
+    }
+
+    getTeam();
   }, [teamId]);
 
   if (loading) return <h1>Loading team...</h1>;

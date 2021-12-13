@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
-import TeamForm from "../../components/Teams/TeamForm";
-import { getTeamById, updateTeamById } from "../../services/teams";
+import { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router';
+import TeamForm from '../../components/Teams/TeamForm';
+import { getTeamById, updateTeamById } from '../../services/teams';
 
 export default function UpdateTeam() {
   const { teamId } = useParams();
-  const [name, setName] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
   const history = useHistory();
 
   useEffect(() => {

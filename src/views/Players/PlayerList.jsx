@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getPlayers } from "../../services/players";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getPlayers } from '../../services/players';
 
 function PlayerList() {
   const [players, setPlayers] = useState([]);

@@ -1,14 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default function TeamForm({
-  name,
-  setName,
-  city,
-  setCity,
-  state,
-  setState,
-  handleSubmit,
-}) {
+export default function TeamForm({ name, setName, city, setCity, state, setState, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>

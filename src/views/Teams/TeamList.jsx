@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
-import { deleteTeamById, getTeams } from "../../services/teams";
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import { deleteTeamById, getTeams } from '../../services/teams';
 
 function TeamList() {
   const [teams, setTeams] = useState([]);
@@ -23,9 +23,7 @@ function TeamList() {
   };
 
   const handleDelete = async ({ id, name }) => {
-    const confirmDelete = confirm(
-      `Are you sure you want to delete the ${name} team?`
-    );
+    const confirmDelete = confirm(`Are you sure you want to delete the ${name} team?`);
 
     if (confirmDelete) {
       await deleteTeamById(id);
@@ -48,14 +46,11 @@ function TeamList() {
               <Link to={`/teams/${team.id}`} className="App-link">
                 {team.name}
               </Link>
-              {"  "}
+              {'  '}
               <button type="button" onClick={() => handleUpdate(team.id)}>
                 Update
               </button>
-              <button
-                type="button"
-                onClick={() => handleDelete({ id: team.id, name: team.name })}
-              >
+              <button type="button" onClick={() => handleDelete({ id: team.id, name: team.name })}>
                 Delete
               </button>
             </li>

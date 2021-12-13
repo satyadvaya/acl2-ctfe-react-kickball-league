@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useHistory } from "react-router";
-import TeamForm from "../../components/Teams/TeamForm";
-import { createTeam } from "../../services/teams";
+import { useState } from 'react';
+import { useHistory } from 'react-router';
+import TeamForm from '../../components/Teams/TeamForm';
+import { createTeam } from '../../services/teams';
 
 export default function AddTeam() {
-  const [name, setName] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
   const history = useHistory();
 
   const handleSubmit = async (event) => {
