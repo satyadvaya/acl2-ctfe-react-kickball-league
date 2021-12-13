@@ -9,6 +9,7 @@ function TeamList() {
   const [loading, setLoading] = useState(true);
 
   const loadTeams = async () => {
+    setLoading(true);
     const response = await getTeams();
     setTeams(response);
     setLoading(false);
@@ -50,7 +51,12 @@ function TeamList() {
               <button type="button" onClick={() => handleUpdate(team.id)}>
                 Update
               </button>
-              <button type="button" onClick={() => handleDelete({ id: team.id, name: team.name })}>
+              {'  '}
+              <button
+                type="button"
+                aria-label={`Delete ${team.name}`}
+                onClick={() => handleDelete({ id: team.id, name: team.name })}
+              >
                 Delete
               </button>
             </li>
