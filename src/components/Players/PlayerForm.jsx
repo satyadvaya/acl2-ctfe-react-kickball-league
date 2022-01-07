@@ -33,7 +33,7 @@ export default function PlayerForm({
       <input
         id="teamId"
         name="teamId"
-        type="number"
+        type="text"
         value={teamId}
         onChange={({ target }) => setTeamId(target.value)}
       />

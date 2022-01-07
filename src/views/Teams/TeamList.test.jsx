@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from 'react-router-dom';
 import TeamList from './TeamList';
 
@@ -64,9 +65,10 @@ it('should delete a team', async () => {
 
   const deleteButton = screen.getByRole('button', { name: 'Delete Mocked Team 2' });
 
-  userEvent.click(deleteButton);
-
-  expect(window.confirm).toBeCalled();
+  act(() => {
+    userEvent.click(deleteButton);
+    expect(window.confirm).toBeCalled();
+  });
 
   await screen.findByText('Loading teams...');
   await screen.findByText(/Mocked Team 1/i);

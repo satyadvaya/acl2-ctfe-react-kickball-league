@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Switch } from 'react-router-dom';
 import TeamDetail from './TeamDetail';
 
 const mockTeam1 = {
@@ -30,7 +30,9 @@ afterAll(() => {
 it('should render a detailed view of an individual team', async () => {
   render(
     <MemoryRouter>
-      <TeamDetail label="label prop value" match={{ params: { teamId: '1' } }} />
+      <Switch>
+        <TeamDetail label="label prop value" match={{ params: { teamId: '1' } }} />
+      </Switch>
     </MemoryRouter>
   );
 

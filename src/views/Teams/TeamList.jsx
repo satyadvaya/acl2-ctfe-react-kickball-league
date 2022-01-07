@@ -24,11 +24,19 @@ function TeamList() {
   };
 
   const handleDelete = async ({ id, name }) => {
-    const confirmDelete = confirm(`Are you sure you want to delete the ${name} team?`);
+    const confirmDelete = confirm(
+      `Are you sure you want to delete the ${name} team? A word of caution: A team must be empty of players before it can be deleted!`
+    );
 
     if (confirmDelete) {
-      await deleteTeamById(id);
-      await loadTeams();
+      try {
+        await deleteTeamById(id);
+        await loadTeams();
+      } catch (error) {
+        alert(
+          'Did you not read my cautionary announcement just a moment ago? I repeat: A team must be empty of players before it can be deleted!'
+        );
+      }
     }
   };
 
