@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the team list 1`] = `
+<div>
+  <h1>
+    Teams:
+  </h1>
+  <a
+    class="App-link"
+    href="/teams/new"
+  >
+    Add a team
+  </a>
+  <ul>
+    <li>
+      <a
+        class="App-link"
+        href="/teams/1"
+      >
+        Mocked Team 1
+      </a>
+        
+      <button
+        type="button"
+      >
+        Update
+      </button>
+        
+      <button
+        aria-label="Delete Mocked Team 1"
+        type="button"
+      >
+        Delete
+      </button>
+    </li>
+    <li>
+      <a
+        class="App-link"
+        href="/teams/2"
+      >
+        Mocked Team 2
+      </a>
+        
+      <button
+        type="button"
+      >
+        Update
+      </button>
+        
+      <button
+        aria-label="Delete Mocked Team 2"
+        type="button"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
+`;
